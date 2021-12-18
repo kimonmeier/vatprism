@@ -75,6 +75,7 @@
         <semver.version>0.9.0</semver.version>
         <jipsy.version>0.6.0</jipsy.version>
         <reflections.version>0.10.2</reflections.version>
+        <discord-game-sdk.version>0.5.4</discord-game-sdk.version>
 
         <jpackage.args.crossPlatform>
             --input "target-fat-jar/"
@@ -306,6 +307,12 @@
             <artifactId>reflections</artifactId>
             <version>${reflections.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.JnCrMx</groupId>
+            <artifactId>discord-game-sdk4j</artifactId>
+            <version>${discord-game-sdk.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -454,6 +461,10 @@
             <releases>
                 <enabled>false</enabled>
             </releases>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 </project>
