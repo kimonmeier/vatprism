@@ -22,6 +22,7 @@ import lombok.extern.log4j.Log4j2;
 import net.marvk.fs.vatsim.map.configuration.*;
 import net.marvk.fs.vatsim.map.data.Preferences;
 import net.marvk.fs.vatsim.map.data.Writable;
+import net.marvk.fs.vatsim.map.discord.DiscordClient;
 import net.marvk.fs.vatsim.map.view.Notifications;
 import net.marvk.fs.vatsim.map.view.main.MainView;
 import net.marvk.fs.vatsim.map.view.main.MainViewModel;
@@ -116,6 +117,10 @@ public class App extends MvvmfxGuiceApplication {
         log.info("Creating scene");
         secondaryStage.setScene(new Scene(viewTuple.getView(), 1366, 768));
         log.info("Showing stage");
+
+        final DiscordClient discordClient = DependencyInjector.getInstance().getInstanceOf(DiscordClient.class);
+        discordClient.prepareClient();
+        discordClient.startActivity("Loading...");
 
         secondaryStage.show();
         setStageSizeAndPositionFromPreferences(secondaryStage, preferences);
